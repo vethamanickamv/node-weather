@@ -8,7 +8,11 @@ const forecast = (latitude, longitude, callback) => {
         } else if (response.body.error) {
             callback('Coordinate error, pass string for error', undefined);
         } else {
-            callback(undefined, response.body.currently);
+            console.log(response.body.daily.data[0], response.body.currently);            
+            const data = response.body.daily.data[0];
+            const currently = response.body.currently;
+            const content = `${data.summary}, It is currently ${currently.temperature} degrees out. This high today is ${data.temperatureHigh} with a low of ${data.temperatureLow}. There is a ${currently.precipProbability}% chance for rain`;
+            callback(undefined, content);
         }
     });
 };
