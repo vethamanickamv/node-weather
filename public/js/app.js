@@ -1,5 +1,3 @@
-console.log('Client side javascript is loaded');
-
 const weatherForm = document.querySelector('form');
 const serach = document.querySelector('input');
 const messageOne = document.querySelector('#message-1');
